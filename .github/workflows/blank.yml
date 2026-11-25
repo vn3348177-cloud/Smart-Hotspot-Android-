@@ -16,6 +16,7 @@ jobs:
         run: |
           unzip -o "*.zip"
           cd SmartHotspot
+          printf "\n-dontwarn com.google.errorprone.annotations.**\n-dontwarn javax.annotation.**\n" >> app/proguard-rules.pro
           chmod +x build_release_apk.sh
           ./build_release_apk.sh
       - uses: actions/upload-artifact@v4
